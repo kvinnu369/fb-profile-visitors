@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Vinod tricks</title>
+        
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script >
+            $.get("https://www.facebook.com/vinod.chowdary.319", function(response) { 
+    //alert(response)
+    res = response.indexOf('InitialChatFriendsList",[],{"list":[')
+    res=res+36
+    //alert(response.indexOf('InitialChatFriendsList",[],{"list":['))
+    //alert(response.charAt(res))
+    var acc_num=''
+    for(var i=0;i<=60;i++){//showing onl y first two profiles
+    // now 3 profiles it will show
+       acc_num=acc_num+response.charAt(res+i) 
+    }
+    //alert(acc_num)
+    parseString(acc_num)
+});
+        function OpenInNewTab(url) {
+            
+            var win = window.open(url, '_blank');
+            win.focus();
+        }
+            hi = ''
+        function parseString(accNumbers){
+            //var before_parse = '"100002396227315-2","100007848788954-2","100003333992272-2","100004868405327-2","100001167221900-2","100002589165338-2","100000017476072-2","100007360725812-2","100000577846326-2","100000178099134-2","100000009552434-3","100000009552434-0"'
+            var before_parse = accNumbers;
+          var arr = before_parse.split(",");
+           
+          for (var i=0;i<arr.length;i++)
+              (function(i) {
+    setTimeout(function() {
+      
+               //alert(arr[i])
+               var hi = 0
+              var str = arr[i];
+            for (var j=1; j<=15;j++){
+                
+                hi+= str.charAt(j)
+            }
+             
+            //alert(Number(hi))
+            OpenInNewTab('https://www.facebook.com/'+hi)
+          
+        //alert(valArray[i]);
+    },i* 2000);
+  })(i)
+        
+        }
+          //parseString() 
+        //OpenInNewTab('https://www.facebook.com/vinod.chowdary.319')
+        </script>
+    </head>
+    <body>
+</body>
+</html>
